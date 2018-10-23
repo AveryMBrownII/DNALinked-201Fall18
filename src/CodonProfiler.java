@@ -12,13 +12,44 @@ public class CodonProfiler {
 	 * @return int[] such that int[k] is number of occurrences of codons[k] in 
 	 * strand. 
 	 */
+	//Rackeb 
+	
+
 	public int[] getCodonProfile(IDnaStrand strand, String[] codons) {
 		HashMap<String,Integer> map = new HashMap<>();
 		int[] ret = new int[codons.length];
-				
-		for(int k=0; k < codons.length; k++) {
-			Iterator<Character> iter = strand.iterator();
-			while (iter.hasNext()) {
+			
+		Iterator<Character> iter = strand.iterator();
+		while (iter.hasNext()) {
+			char a = iter.next();
+			char b = 'z';           // not part of any real codon
+			char c = 'z';
+			if (iter.hasNext()) {
+				b = iter.next();
+			}
+			if (iter.hasNext()) {
+				c = iter.next();
+			}
+			String cod = ""+a+b+c; 
+			
+			if (! map.containsKey(cod)) {
+					map.put(cod, 1); }
+			
+			else {
+					map.put(cod, map.get(cod)+1); 
+				}
+		
+			for (int k=0; k<codons.length; k++) {
+				ret[k]= map.get(codons[k]); 
+			}
+			return ret; 
+			
+			
+			
+			
+			
+			
+			/*while (iter.hasNext()) {
 				char a = iter.next();
 				char b = 'z';           // not part of any real codon
 				char c = 'z';
@@ -32,8 +63,13 @@ public class CodonProfiler {
 				if (cod.equals(codons[k])) {
 					ret[k] += 1;
 				}
-			}
+			}*/
 		}
 		return ret;
 	}
+	
+	
+			
+		
+	
 }

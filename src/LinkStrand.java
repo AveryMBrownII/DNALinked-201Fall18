@@ -76,6 +76,7 @@ public class LinkStrand implements IDnaStrand {
 		copy.reverse();
 		LinkStrand ss = new LinkStrand(copy.toString());
 		return ss;*/
+		
 	}
 
 	@Override
