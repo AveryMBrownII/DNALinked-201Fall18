@@ -30,13 +30,12 @@ public class CodonProfiler {
 			
 			map.putIfAbsent(cod,0);
 			map.put(cod, map.get(cod)+1); 
-		
-			for (int k=0; k<codons.length; k++) {
-				if (map.containsKey(codons[k])) {
-					ret[k]= map.get(codons[k]);
-				}
-				else {ret[k] = 0;}
+		}
+		for (int k=0; k<codons.length; k++) {
+			if (map.containsKey(codons[k])) {
+				ret[k]= map.get(codons[k]);
 			}
+			else {ret[k] = 0;}
 		}
 		return ret; 
 	}	

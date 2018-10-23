@@ -1,6 +1,7 @@
 
 /**
  * just created the LinkStrand class -avery
+ * completed all methods except for reverse and charAt
  */
 public class LinkStrand implements IDnaStrand {
 
