@@ -1,3 +1,4 @@
+import java.util.Iterator;
 
 /**
  * just created the LinkStrand class -avery
@@ -73,12 +74,29 @@ public class LinkStrand implements IDnaStrand {
 
 	@Override
 	public IDnaStrand reverse() {
-		/*StringBuilder copy = new StringBuilder(myInfo);
-		copy.reverse();
-		LinkStrand ss = new LinkStrand(copy.toString());
-		return ss;*/
+		Node temp = myFirst;
+		Node last = myFirst;
+		StringBuilder copy = new StringBuilder(temp.info);
+		String xx = copy.reverse().toString();
+		Node current = new Node(xx);
 		
+		while (temp.next != null) {
+			StringBuilder dup = new StringBuilder(temp.next.info);
+			String yy = dup.reverse().toString();
+			Node previous = new Node(yy);
+			previous.next = current;
+			current = previous;
+			temp = temp.next;
+		}
+		myFirst = current;
+		myLast = last;
+		StringBuilder opposite = new StringBuilder(toString());
+		opposite.reverse();
+		StringStrand ss = new StringStrand(opposite.toString());
+		return ss;
 	}
+		
+		
 
 	@Override
 	public char charAt(int index) {
