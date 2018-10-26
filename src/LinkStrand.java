@@ -94,12 +94,12 @@ public class LinkStrand implements IDnaStrand {
 			current = previous;
 			temp = temp.next;
 		}
-		myFirst = current;
-		myLast = last;
-		StringBuilder opposite = new StringBuilder(toString());
-		opposite.reverse();
-		StringStrand ss = new StringStrand(opposite.toString());
-		return ss;
+		LinkStrand finishing = new LinkStrand ();
+		
+		finishing.myFirst= current; 
+		finishing.myLast= last; 
+		
+		return finishing;
 	}
 
 
