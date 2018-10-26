@@ -96,7 +96,7 @@ public class LinkStrand implements IDnaStrand {
 			temp = temp.next;
 		}
 		LinkStrand finishing = new LinkStrand ();
-		
+		finishing.mySize= mySize; 
 		finishing.myFirst= current; 
 		finishing.myLast= current2; 
 		
