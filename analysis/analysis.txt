@@ -99,13 +99,14 @@ Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
 
 Question 1: Are the benchmark timings for StringStrand consistent with the explanation below that the time to execute cutAndSplice is O(b2S)? 
 answer: Usually when the length of splice doubles, the time also doubles. However, as evident in the timings, this holds true for larger strands but does not run as we expected for smaller ones. 
-It is consistent with the O(b^2S) complexity idea, however, because in this case you are appending each single letter at a time. 
+It is consistent with the O(b^2S) complexity idea, however, because in this case you are appending each single letter at a time (concatenating using .amends) B is constant and is the number of occurrences in the splice. 
 
 Question 2: Are the benchmark timings for StringBuilderStrand consistent with the explanation below that the time to execute cutAndSplice is O(bS)? 
 answer: 
 
-It is consistent with the o(bS) complexity because in this case each strand that is being added into 
-Question 3: 
+It is consistent with the o(bS) complexity because in this case each strand that is being added in is all at one time, rather than the example above where each individual letter is appended (making it much slower) b is constant and is the number of occurrences in the splice 
+
+Question 3: The Linked list does not change much because you are only changing the pointing of the nodes. 
 
 
 Questions here will come from the assignment
