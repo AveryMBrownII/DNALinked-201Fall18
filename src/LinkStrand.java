@@ -8,25 +8,28 @@ public class LinkStrand implements IDnaStrand {
 
 	private class Node {
 		String info;
-	   	Node next;
-	   	public Node(String s) {
-	   		info = s;
-	      	next = null;
-	   	}
+		Node next;
+		public Node(String s) {
+			info = s;
+			next = null;
+		}
 	}
 	private Node myFirst,myLast;
 	private long mySize;
 	private int myAppends;
+	private int oldIndex; 
+	private int oldDex; 
+	private Node oldList; 
 
-	
+
 	public LinkStrand() {
 		this("");
 	}
-	
+
 	public LinkStrand(String s) {
 		initialize(s);
 	}
-	
+
 	@Override
 	public long size() {
 		return mySize;
@@ -51,7 +54,7 @@ public class LinkStrand implements IDnaStrand {
 		strand.append(myLast.info);
 		return strand.toString();
 	}
-		
+
 	@Override
 	public IDnaStrand getInstance(String source) {
 		return new LinkStrand(source);
@@ -79,7 +82,7 @@ public class LinkStrand implements IDnaStrand {
 		StringBuilder copy = new StringBuilder(temp.info);
 		String xx = copy.reverse().toString();
 		Node current = new Node(xx);
-		
+
 		while (temp.next != null) {
 			StringBuilder dup = new StringBuilder(temp.next.info);
 			String yy = dup.reverse().toString();
@@ -95,11 +98,33 @@ public class LinkStrand implements IDnaStrand {
 		StringStrand ss = new StringStrand(opposite.toString());
 		return ss;
 	}
-		
-		
+
+
 
 	@Override
 	public char charAt(int index) {
-		return myInfo.charAt(index);
+		if (index> mySize) {
+			throw new IndexOutOfBoundsException(); 
+		}
+		int count = 0;
+		int dex = 0;
+		Node list = myFirst;
+		if (index > oldIndex) {
+			count= oldIndex; 
+			dex=oldDex; 
+			list= oldList; 
+		}
+		while (count != index) {
+			count++;
+			dex++;
+			if (dex >= list.info.length()) {
+				dex = 0;
+				list = list.next;
+			}
+		}
+		oldIndex= index; 
+		oldDex= dex; 
+		oldList= list;  
+		return list.info.charAt(dex);
 	}	
 }
