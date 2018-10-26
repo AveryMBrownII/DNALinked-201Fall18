@@ -85,6 +85,7 @@ public class LinkStrand implements IDnaStrand {
 		StringBuilder copy = new StringBuilder(temp.info);
 		String xx = copy.reverse().toString();
 		Node current = new Node(xx);
+		Node current2=current; 
 
 		while (temp.next != null) {
 			StringBuilder dup = new StringBuilder(temp.next.info);
@@ -97,7 +98,7 @@ public class LinkStrand implements IDnaStrand {
 		LinkStrand finishing = new LinkStrand ();
 		
 		finishing.myFirst= current; 
-		finishing.myLast= last; 
+		finishing.myLast= current2; 
 		
 		return finishing;
 	}
