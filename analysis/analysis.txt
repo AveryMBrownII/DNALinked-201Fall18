@@ -105,10 +105,13 @@ Question 2: Are the benchmark timings for StringBuilderStrand consistent with th
 answer: Again, usually when the length of the splice doubles, time also double are consistent with StringBuilderStrand times  but this relationship does not hold true for the smaller values.  It is consistent with the o(bS) complexity because in this case each strand that is being added in is all at once, one time (rather than the example above where each individual letter is appended which makes it much slower)) b is constant and is the number of occurrences in the splice 
 b again is constant and represents the number of occurrences. 
 
-Question 3: The Linked list does not change much because when you add to a section in the linked list, it is O(1). This means that it is not affected by the size of what is being added. 
+Question 3:
+answer: The Linked list does not change much because when you add to a section in the linked list, it is O(1). This means that it is constant not affected by the size of what is being added. 
 In this case, the pointing of the nodes is changing. The node pointing to the section before the insert now points to the inserted node and the inserted node now points to the node after. 
-LinkedStrand saves a great amount of memory because the spice is in one single string which has the appended nodes pointing to this same string. In the other two, a new string is made for each appending. 
+LinkedStrand saves a great amount of memory because the spice is in one string which has the appended nodes pointing to this same string. In the other two, a new string is made for each appending. 
 Questions here will come from the assignment
-writeup. Be sure to copy paste questions and 
+writeup. 
+
+Be sure to copy paste questions and 
 your explanations before you push to GitHub and
 do that before uploading to Gradescope
