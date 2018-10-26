@@ -106,7 +106,7 @@ answer: Again, usually when the length of the splice doubles, time also double a
 b again is constant and represents the number of occurrences. 
 
 Question 3:
-answer: The Linked list does not change much because when you add to a section in the linked list, it is O(1). This means that it is constant not affected by the size of what is being added. 
+answer: The Linked list does not change much because when you add to a section in the linked list, it is O(1). This means that it is constant and not affected by the size of what is being added. 
 In this case, the pointing of the nodes is changing. The node pointing to the section before the insert now points to the inserted node and the inserted node now points to the node after. 
 LinkedStrand saves a great amount of memory because the spice is in one string which has the appended nodes pointing to this same string. In the other two, a new string is made for each appending. 
 Questions here will come from the assignment
