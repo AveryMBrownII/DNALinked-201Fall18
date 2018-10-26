@@ -75,7 +75,7 @@ cutting at enzyme gaattc
 -----
 dna length = 4,639,221
 cutting at enzyme gaattc
------
+-----Li
 Class	                splicee	      recomb	time	appends
 -----
 StringStrand:	            256	      4,800,471	0.415	1290
@@ -98,17 +98,16 @@ Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
 	at DNABenchmark.main(DNABenchmark.java:113)
 
 Question 1: Are the benchmark timings for StringStrand consistent with the explanation below that the time to execute cutAndSplice is O(b2S)? 
-answer: Usually when the length of splice doubles, the time also doubles. However, as evident in the timings, this holds true for larger strands but does not run as we expected for smaller ones. 
-It is consistent with the O(b^2S) complexity idea, however, because in this case you are appending each single letter at a time (concatenating using .amends) B is constant and is the number of occurrences in the splice. 
+answer: Usually when the length of splice doubles, the time also doubles. However, as evident in the timings, this holds true for larger strands but does not run as we expected for smaller ones. (This could be because the program needs time to get started) 
+It is consistent with the O(b^2S) complexity idea, however, because in this case you are appending each single letter at a time (concatenating using .amends) B is constant and is the number of occurrences of the enzyme in the splice. 
 
 Question 2: Are the benchmark timings for StringBuilderStrand consistent with the explanation below that the time to execute cutAndSplice is O(bS)? 
-answer: 
+answer: Again, usually when the length of the splice doubles, time also double are consistent with StringBuilderStrand times  but this relationship does not hold true for the smaller values.  It is consistent with the o(bS) complexity because in this case each strand that is being added in is all at once, one time (rather than the example above where each individual letter is appended which makes it much slower)) b is constant and is the number of occurrences in the splice 
+b again is constant and represents the number of occurrences. 
 
-It is consistent with the o(bS) complexity because in this case each strand that is being added in is all at one time, rather than the example above where each individual letter is appended (making it much slower) b is constant and is the number of occurrences in the splice 
-
-Question 3: The Linked list does not change much because you are only changing the pointing of the nodes. 
-
-
+Question 3: The Linked list does not change much because when you add to a section in the linked list, it is O(1). This means that it is not affected by the size of what is being added. 
+In this case, the pointing of the nodes is changing. The node pointing to the section before the insert now points to the inserted node and the inserted node now points to the node after. 
+LinkedStrand saves a great amount of memory because the spice is in one single string which has the appended nodes pointing to this same string. In the other two, a new string is made for each appending. 
 Questions here will come from the assignment
 writeup. Be sure to copy paste questions and 
 your explanations before you push to GitHub and
